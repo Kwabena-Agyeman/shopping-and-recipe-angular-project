@@ -1,1 +1,18 @@
-<p>recipe-item works!</p>
+<a
+  href="#"
+  class="list-group-item d-flex justify-content-between align-items-center"
+  *ngIf="recipe"
+>
+  <div class="">
+    <h4 class="fw-bold">{{ recipe.name }}</h4>
+    <p>{{ recipe.description }}</p>
+  </div>
+  <span>
+    <img
+      [src]="recipe.imagePath"
+      alt=""
+      class="img-fluid"
+      style="max-height: 80px"
+    />
+  </span>
+</a>

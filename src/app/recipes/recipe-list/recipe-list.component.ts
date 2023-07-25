@@ -15,8 +15,8 @@ export class RecipeListComponent {
         'https://eugenesdiner.com/wp-content/uploads/2023/01/NewPunjabClub_Overhead2.jpg',
     },
     {
-      name: "Kwabena's recipe",
-      description: ' Dummy recipe',
+      name: "Abena's recipe",
+      description: ' Secret recipe',
       imagePath:
         'https://eugenesdiner.com/wp-content/uploads/2023/01/NewPunjabClub_Overhead2.jpg',
     },
