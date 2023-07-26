@@ -7,16 +7,24 @@ import { Recipe } from '../recipes/recipe.model';
 export class RecipeService {
   private recipes: Recipe[] = [
     {
-      name: "Kwabena's recipe",
-      description: ' Dummy recipe',
+      name: 'Double Cheese Burger',
+      description: 'Finger licking good',
+      ingredients: [
+        { name: 'Beef', amount: 1 },
+        { name: 'Fries', amount: 2 },
+      ],
       imagePath:
-        'https://eugenesdiner.com/wp-content/uploads/2023/01/NewPunjabClub_Overhead2.jpg',
+        'https://media-cdn.tripadvisor.com/media/photo-s/16/90/e3/9f/burger-se-syrem-hovezi.jpg',
     },
     {
-      name: "Abena's recipe",
-      description: ' Secret recipe',
+      name: 'Hawaiian Pizza ',
+      description: 'Taste it Love it',
+      ingredients: [
+        { name: 'Pineapple', amount: 1 },
+        { name: 'Tomatoes', amount: 2 },
+      ],
       imagePath:
-        'https://eugenesdiner.com/wp-content/uploads/2023/01/NewPunjabClub_Overhead2.jpg',
+        'https://kauveryhospital.com/blog/wp-content/uploads/2021/04/pizza-5179939_960_720.jpg',
     },
   ];
   recipeSelected = new EventEmitter<Recipe>();
