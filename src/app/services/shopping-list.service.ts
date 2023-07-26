@@ -17,22 +17,32 @@ export class ShoppingListService {
     return [...this.ingredients];
   }
 
-  addIngredient(ingredient: Ingredient | Ingredient[]) {
-    if (Array.isArray(ingredient)) {
-      ingredient.map((newIngredient) => {
-        const existingItem = this.ingredients.findIndex(
-          (oldIngredient) => oldIngredient.name === newIngredient.name
-        );
+  private updateIngredientList(item: Ingredient) {
+    const ingredients = [...this.ingredients];
+    const newIngredient = { ...item };
+    const existingIngredientIndex = ingredients.findIndex(
+      (existingIngredient) =>
+        existingIngredient.name.toLowerCase() ===
+        newIngredient.name.toLowerCase()
+    );
 
-        if (existingItem === -1) {
-          this.ingredients.push(newIngredient);
-        } else {
-          this.ingredients[existingItem].amount =
-            this.ingredients[existingItem].amount + newIngredient.amount;
-        }
-      });
+    if (existingIngredientIndex === -1) {
+      ingredients.push(newIngredient);
+      return ingredients;
     } else {
-      this.ingredients.push(ingredient);
+      ingredients[existingIngredientIndex].amount += newIngredient.amount;
+      return ingredients;
+    }
+  }
+
+  addIngredient(ingredient: Ingredient) {
+    this.ingredients = this.updateIngredientList(ingredient);
+    this.ingredientsChanges.emit([...this.ingredients]);
+  }
+
+  addIngredients(ingredients: Ingredient[]) {
+    for (const ingredient of ingredients) {
+      this.ingredients = this.updateIngredientList(ingredient);
     }
     this.ingredientsChanges.emit([...this.ingredients]);
   }

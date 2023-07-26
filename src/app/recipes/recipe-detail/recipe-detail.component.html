@@ -20,7 +20,7 @@
         <button
           type="button"
           class="btn btn-primary"
-          (click)="addIngredientsToShopList()"
+          (click)="addIngredientsToShopList(recipe.ingredients)"
         >
           Add to Shopping List
         </button>
@@ -46,5 +46,5 @@
   </div>
 </ng-container>
 <ng-template #noRecipe>
-  <p>Please select a recipe</p>
+  <h3>No recipe with this id</h3>
 </ng-template>
