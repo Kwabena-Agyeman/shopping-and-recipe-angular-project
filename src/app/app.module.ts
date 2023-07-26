@@ -15,6 +15,7 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { FormsModule } from '@angular/forms';
 import { RecipeNavigationHomeComponent } from './recipes/recipe-navigation-home/recipe-navigation-home.component';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { RecipeNavigationHomeComponent } from './recipes/recipe-navigation-home/
     ShoppingListComponent,
     ShoppingListEditComponent,
     RecipeNavigationHomeComponent,
+    RecipeEditComponent,
   ],
   imports: [
     BrowserModule,
