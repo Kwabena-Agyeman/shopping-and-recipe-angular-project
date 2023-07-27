@@ -11,6 +11,7 @@ export class ShoppingListService {
     { name: 'Apples', amount: 10 },
   ];
   ingredientsChanges = new Subject<Ingredient[]>();
+  selectedIngredient = new Subject<Ingredient>();
 
   constructor() {}
 
@@ -45,6 +46,36 @@ export class ShoppingListService {
     for (const ingredient of ingredients) {
       this.ingredients = this.updateIngredientList(ingredient);
     }
+    this.ingredientsChanges.next([...this.ingredients]);
+  }
+
+  editIngredient(ingredient: Ingredient) {
+    const editedIngredient = { ...ingredient };
+    const existingIngredientIndex = this.ingredients.findIndex(
+      (existingIngredient) =>
+        existingIngredient.name.toLowerCase() ===
+        editedIngredient.name.toLowerCase()
+    );
+
+    if (existingIngredientIndex !== -1) {
+      this.ingredients[existingIngredientIndex].name = editedIngredient.name;
+      this.ingredients[existingIngredientIndex].amount =
+        editedIngredient.amount;
+
+      this.ingredientsChanges.next([...this.ingredients]);
+    }
+  }
+
+  deleteIngredient(ingredient: Ingredient) {
+    const deletedIngredient = { ...ingredient };
+    const ingredients = [...this.ingredients];
+
+    this.ingredients = ingredients.filter(
+      (existingIngredient) =>
+        existingIngredient.name.toLowerCase() !==
+        deletedIngredient.name.toLowerCase()
+    );
+
     this.ingredientsChanges.next([...this.ingredients]);
   }
 }
