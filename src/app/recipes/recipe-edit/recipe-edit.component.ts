@@ -96,10 +96,15 @@ export class RecipeEditComponent implements OnInit {
 
   onSubmit() {
     if (this.editMode && this.id) {
-      this.recipeService.editRecipe({ ...this.recipeForm.value, id: this.id });
+      const editedRecipe: Recipe = {
+        ...this.recipeForm.value,
+        id: this.id,
+      };
+
+      this.recipeService.editRecipe(editedRecipe);
     } else {
       const id = this.recipeService.getRecipes().length + 1;
-      const newRecipe = { ...this.recipeForm.value, id };
+      const newRecipe: Recipe = { ...this.recipeForm.value, id };
       this.recipeService.addRecipe(newRecipe);
     }
     this.resetForm();
@@ -115,7 +120,7 @@ export class RecipeEditComponent implements OnInit {
     if (this.id) {
       this.router.navigate(['/recipes', this.id]);
     } else {
-      this.router.navigate(['/recipes']);
+      this.router.navigate(['../']);
     }
   }
 }
