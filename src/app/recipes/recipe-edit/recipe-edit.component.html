@@ -12,7 +12,6 @@
                   id="recipeName"
                   class="form-control"
                   [formControlName]="'name'"
-                  required
                 />
               </div>
             </div>
@@ -27,7 +26,6 @@
                   id="imagePath"
                   class="form-control"
                   [formControlName]="'imagePath'"
-                  required
                 />
               </div>
             </div>
@@ -52,7 +50,6 @@
                   class="form-control"
                   rows="6"
                   [formControlName]="'description'"
-                  required
                 ></textarea>
               </div>
             </div>
@@ -113,7 +110,13 @@
           >
             {{ editMode ? "Update" : "Save" }}
           </button>
-          <button class="btn btn-danger ms-2" type="button">Cancel</button>
+          <button
+            class="btn btn-danger ms-2"
+            type="button"
+            (click)="onCancel()"
+          >
+            Cancel
+          </button>
         </div>
       </div>
     </form>
