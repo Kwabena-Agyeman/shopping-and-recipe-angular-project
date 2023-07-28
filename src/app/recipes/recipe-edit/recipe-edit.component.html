@@ -69,7 +69,7 @@
               [formGroupName]="i"
               class="row mt-2 form-group"
               *ngFor="
-                let ingredientsControl of ingredientsControls;
+                let ingredientsControl of recipeIngredientsFormArray.controls;
                 let i = index
               "
             >
