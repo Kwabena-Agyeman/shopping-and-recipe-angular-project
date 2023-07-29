@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthResponse, AuthService } from '../services/auth.service';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth',
@@ -13,7 +14,7 @@ export class AuthComponent {
   isLoading = false;
   authError?: string;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   onSwitchMode() {
     this.isLoginMode = !this.isLoginMode;
@@ -38,9 +39,10 @@ export class AuthComponent {
         if ('registered' in response) {
           console.log({ LoginRes: response });
         } else {
-          console.log({ Resgisterd: response });
+          console.log({ Registered: response });
         }
         this.isLoading = false;
+        this.router.navigate(['/']);
       },
       (error) => {
         this.authError = error;
