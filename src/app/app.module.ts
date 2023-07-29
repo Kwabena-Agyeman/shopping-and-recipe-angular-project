@@ -16,6 +16,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecipeNavigationHomeComponent } from './recipes/recipe-navigation-home/recipe-navigation-home.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
     ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     CollapseModule.forRoot(),
     BsDropdownModule.forRoot(),
   ],
