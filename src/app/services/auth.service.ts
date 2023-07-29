@@ -72,6 +72,27 @@ export class AuthService {
     this.router.navigate(['/auth']);
   }
 
+  autoLogin() {
+    console.log('called');
+    const userData = localStorage.getItem('recipe-book-app-user-token');
+    console.log({ userData });
+
+    if (!userData) return;
+
+    const userDataObj: User = JSON.parse(userData);
+
+    const loadedUser = new User(
+      userDataObj.email,
+      userDataObj.id,
+      userDataObj['_token'],
+      new Date(userDataObj['_tokenExpirationDate'])
+    );
+
+    if (loadedUser.isTokenValid) {
+      this.user.next(loadedUser);
+    }
+  }
+
   private userCreation(data: AuthResponse) {
     const expirationDate = new Date(
       new Date().getTime() + +data.expiresIn * 1000
@@ -84,6 +105,7 @@ export class AuthService {
     );
 
     this.user.next(user);
+    localStorage.setItem('recipe-book-app-user-token', JSON.stringify(user));
   }
 
   private handleError(err: HttpErrorResponse) {
