@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Recipe } from './recipe.model';
 import { RecipeService } from '../services/recipe.service';
+import { DataStorageService } from '../shared/data-storage.service';
 
 @Component({
   selector: 'app-recipes',
@@ -8,6 +9,8 @@ import { RecipeService } from '../services/recipe.service';
   styleUrls: ['./recipes.component.css'],
 })
 export class RecipesComponent implements OnInit {
-  constructor() {}
-  ngOnInit(): void {}
+  constructor(private dataService: DataStorageService) {}
+  ngOnInit(): void {
+    this.dataService.fetchRecipes();
+  }
 }

@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { RecipeService } from '../services/recipe.service';
 import { Recipe } from '../recipes/recipe.model';
 
@@ -9,6 +9,7 @@ import { Recipe } from '../recipes/recipe.model';
 export class DataStorageService {
   private firebaseURL =
     'https://organic-shop-angular-ebe7a-default-rtdb.firebaseio.com/recipes.json';
+
   constructor(private http: HttpClient, private recipeService: RecipeService) {}
 
   storeRecipes() {
