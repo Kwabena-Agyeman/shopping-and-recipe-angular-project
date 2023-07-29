@@ -17,11 +17,9 @@ export class User {
   get isTokenValid() {
     //check token if token is valid
     if (!this._tokenExpirationDate || new Date() > this._tokenExpirationDate) {
-      console.log('token expired');
       return null;
     }
 
-    console.log('Token valid');
     return this._token;
   }
 }

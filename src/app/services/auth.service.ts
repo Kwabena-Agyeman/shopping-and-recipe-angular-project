@@ -74,9 +74,7 @@ export class AuthService {
   }
 
   autoLogin() {
-    console.log('called');
     const userData = localStorage.getItem('recipe-book-app-user-token');
-    console.log({ userData });
 
     if (!userData) return;
 
