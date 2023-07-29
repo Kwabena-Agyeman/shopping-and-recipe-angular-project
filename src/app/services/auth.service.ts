@@ -69,6 +69,7 @@ export class AuthService {
 
   signOut() {
     this.user.next(null);
+    localStorage.removeItem('recipe-book-app-user-token');
     this.router.navigate(['/auth']);
   }
 
@@ -90,6 +91,8 @@ export class AuthService {
 
     if (loadedUser.isTokenValid) {
       this.user.next(loadedUser);
+    } else {
+      localStorage.removeItem('recipe-book-app-user-token');
     }
   }
 
