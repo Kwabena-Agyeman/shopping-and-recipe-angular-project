@@ -17,16 +17,27 @@
     >
       <ul class="navbar-nav">
         <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link btn" routerLink="/auth">Login</a>
+          <a class="nav-link btn" routerLink="/auth" *ngIf="!isAuthenticated"
+            >Login</a
+          >
         </li>
         <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link btn" routerLink="/recipes">Recipes</a>
+          <a class="nav-link btn" routerLink="/recipes" *ngIf="isAuthenticated"
+            >Recipes</a
+          >
         </li>
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link btn" routerLink="/shopping-list">Shopping List</a>
         </li>
       </ul>
-      <div class="btn-group ms-auto me-5" dropdown placement="bottom left">
+      <div class="ms-auto me-5" dropdown placement="bottom left">
+        <button
+          class="btn btn-danger me-2"
+          (click)="onSignOut()"
+          *ngIf="isAuthenticated"
+        >
+          Logout
+        </button>
         <button
           dropdownToggle
           id="button-basic"
