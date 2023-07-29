@@ -1,7 +1,7 @@
 import { EventEmitter, Injectable, OnInit } from '@angular/core';
 import { Recipe } from '../recipes/recipe.model';
 import { BehaviorSubject, Subject } from 'rxjs';
-import { DataStorageService } from '../shared/data-storage.service';
+import { DataStorageService } from './data-storage.service';
 
 @Injectable({
   providedIn: 'root',

@@ -18,6 +18,7 @@ import { RecipeNavigationHomeComponent } from './recipes/recipe-navigation-home/
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthComponent } from './auth/auth.component';
+import { LoadingComponent } from './shared/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { AuthComponent } from './auth/auth.component';
     RecipeNavigationHomeComponent,
     RecipeEditComponent,
     AuthComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,

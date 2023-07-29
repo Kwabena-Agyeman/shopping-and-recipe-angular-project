@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Recipe } from './recipe.model';
 import { RecipeService } from '../services/recipe.service';
-import { DataStorageService } from '../shared/data-storage.service';
+import { DataStorageService } from '../services/data-storage.service';
 
 @Component({
   selector: 'app-recipes',
