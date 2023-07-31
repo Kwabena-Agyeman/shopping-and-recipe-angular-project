@@ -10,23 +10,17 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthComponent } from './auth/auth.component';
-import { LoadingComponent } from './shared/loading/loading.component';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
-import { AlertComponent } from './shared/alert/alert.component';
 import { RecipesModule } from './recipes/recipes.module';
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    AuthComponent,
-    LoadingComponent,
-    AlertComponent,
-  ],
+  declarations: [AppComponent, HeaderComponent, AuthComponent],
   imports: [
     RecipesModule,
     ShoppingListModule,
+    SharedModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
