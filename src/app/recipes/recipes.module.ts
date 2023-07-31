@@ -42,6 +42,5 @@ import { AuthGuard } from '../auth/auth.guard';
       },
     ]),
   ],
-  exports: [RecipesComponent],
 })
 export class RecipesModule {}
