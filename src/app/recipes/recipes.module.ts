@@ -25,7 +25,7 @@ import { AuthGuard } from '../auth/auth.guard';
     ReactiveFormsModule,
     RouterModule.forChild([
       {
-        path: 'recipes',
+        path: '',
         component: RecipesComponent,
         canActivate: [AuthGuard],
         children: [
