@@ -5,8 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
-import { CollapseModule } from 'ngx-bootstrap/collapse';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthComponent } from './auth/auth.component';
@@ -14,6 +12,7 @@ import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { RecipesModule } from './recipes/recipes.module';
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { SharedModule } from './shared/shared.module';
+import { BootstrapModule } from './bootstrap/bootstrap.module';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, AuthComponent],
@@ -21,14 +20,13 @@ import { SharedModule } from './shared/shared.module';
     RecipesModule,
     ShoppingListModule,
     SharedModule,
+    BootstrapModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    CollapseModule.forRoot(),
-    BsDropdownModule.forRoot(),
   ],
   providers: [
     {
