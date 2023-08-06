@@ -33,6 +33,14 @@
           #password
         />
       </div>
+
+      <ng-container *ngIf="isLoginMode">
+        <hr />
+        <p class="alert-text">Use these credentials for guest login</p>
+        <p class="alert-text">Email : demo@demo.com</p>
+        <p class="alert-text">Password : 123456</p>
+      </ng-container>
+
       <div class="mt-5">
         <button class="btn btn-primary" type="submit" [disabled]="form.invalid">
           {{ isLoginMode ? "Login" : "Sign up" }}
